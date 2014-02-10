@@ -1,16 +1,19 @@
 class Pizza
   attr_accessor :toppings
 
-  def initialize(*toppings)
-    @toppings = toppings.flatten
-    @toppings = [Topping.new('cheese', vegetarian: true)] if @toppings == []
+  def initialize(toppings=nil)
+    if toppings.nil?
+      @toppings = [Topping.new('cheese', vegetarian: true)]
+    else
+      @toppings = toppings
+    end
   end
 end
 
 class Topping
   attr_accessor :name, :vegetarian
 
-  def initialize(name, vegetarian: false)
+  def initialize(name, x: nil, vegetarian: false)
     @name = name
     @vegetarian = vegetarian
   end

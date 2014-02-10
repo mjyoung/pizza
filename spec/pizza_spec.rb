@@ -6,7 +6,7 @@ describe Pizza do
 
     it "record all of the toppings" do
       toppings = [
-        Topping.new('mushrooms', vegetarian: true),
+        Topping.new('mushrooms', :vegetarian => true, :x => 2),
         Topping.new('pepperoni')
       ]
       pizza = Pizza.new(toppings)
