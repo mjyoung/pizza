@@ -1,3 +1,5 @@
+require 'pry'
+
 class Pizza
   attr_accessor :toppings
 
@@ -8,6 +10,15 @@ class Pizza
       @toppings = toppings
     end
   end
+
+  def vegetarian?
+    @toppings.all? { |topping| topping.vegetarian == true }
+  end
+
+  def add_toppings(topping)
+    @toppings << topping
+  end
+
 end
 
 class Topping
