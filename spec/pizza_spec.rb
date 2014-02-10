@@ -66,6 +66,24 @@ describe Pizza do
     end
   end
 
+  describe '.deliver!' do
+    it "sets a delivery time" do
+      pizza = Pizza.new
+      pizza.deliver!
+      expect(pizza.delivery_time).to_not eq(0)
+    end
+  end
+
+  describe '.late?' do
+    it "is marked late if past the delivery time" do
+      pizza = Pizza.new
+      pizza.deliver!
+      expect(pizza.late?).to eq(false)
+      pizza.delivery_time = Time.now - 30
+      expect(pizza.late?).to eq(true)
+    end
+  end
+
 end
 
 describe Topping do
